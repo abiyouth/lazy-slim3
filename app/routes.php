@@ -7,5 +7,9 @@ $app->get('/', function($request, $response, $args) {
 
 })->setName('home');
 
+$app->get('/abcd/', function($request, $response, $args) {
 
+    return "i";
+
+})->setName('uuhdd');
 ?>
