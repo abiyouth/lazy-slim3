@@ -1,11 +1,11 @@
 <?php
 
-$app->add(new \RKA\SessionMiddleware(['name' => 'project_reg']));
+$app->add(new \RKA\SessionMiddleware(['name' => 'PROJECT_NAME']));
 
 // Get the container
 $container = $app->getContainer();
 
-// Twig view dependency
+// Twig view container
 $container['view'] = function ($c) {
 
     $cf = $c->get('config')['view'];
@@ -18,7 +18,7 @@ $container['view'] = function ($c) {
     return $view;
 };
 
-
+// DB container
 $container['db'] = function($container) {
 
         $config = $container->get('config')['pdo'];

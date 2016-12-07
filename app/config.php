@@ -1,7 +1,7 @@
 <?php
 
 return [
-
+  
   'config' => [
 
     'displayErrorDetails' => true,
@@ -12,9 +12,9 @@ return [
       ]
     ],
     'pdo' => [
-      'engine' => 'mysql',
+      'engine' => 'DBTYPE',
       'host' => 'localhost',
-      'database' => 'project',
+      'database' => 'DBNAME',
       'username' => 'root',
       'password' => '',
       'charset' => 'utf8',
