@@ -1,16 +1,17 @@
 # **lazy_slim3**
 
-_lazy-slim3_ is an easy to start slim framework php project skeleton.
+_lazy-slim3_ is an easy to start slim micro framework skeleton.
 
   - Slim3
   - Twig
   - RKA Session middleware
 
+(docs links below)
 ### Better
 
 Use xampp for dev: (Win/OSX/Linux)
 
-> [XAMPP with PHP 5.6+ ](https://www.apachefriends.org/index.html)
+> [XAMPP with PHP 5.6/MYSQL/Apache ](https://www.apachefriends.org/index.html)
 
 
 ### Installation
@@ -35,8 +36,9 @@ $ composer install
 $ http://localhost/[skeleton-name]
 ```
 
-If composer is not installed follow the steps:
+
 ### Composer
+If composer is not installed follow the steps:
 
 Linux:
 ```sh
@@ -46,12 +48,11 @@ $ sudo apt-get install composer
 Windows:
 * [composer for windows](https://getcomposer.org/download/)
 
-### Todos
+### Documentation
 
- - Write Tests
- - Rethink Github Save
- - Add Code Comments
- - Add Night Mode
+ - [Slim3 docs]()
+ - [Twig docs]()
+ - [RKA Session middleware docs]()
 
 License
 ----
