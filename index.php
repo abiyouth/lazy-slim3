@@ -10,7 +10,6 @@ $config = require __DIR__ . '/app/config.php';
 $app = new Slim\App( $config );
 
 // Include middleware and routes.
-diuiuasuidsuid
 
 require __DIR__ . '/app/middleware.php';
 require __DIR__ . '/app/routes.php';
