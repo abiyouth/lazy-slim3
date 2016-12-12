@@ -3,22 +3,21 @@
 //  Home page {Redirect}
 $app->get('/', function($request, $response, $args) {
 
-    return $this->view->render($response, 'home.twig');
+    return $this->view->render($response, 'home.twig', ['ray'=>'Hello Lazy world']);
 
 })->setName('home');
 
 $app->get('/{name}', function($request, $response, $args) {
 
     $name = $args['name'];
-    return $response->write("Hello $name");
+    return $this->view->render($response, 'sample.twig', ['name'=>$name] );
 
-})->setName('uuhdd');
+})->setName('name');
 
-$app->get('/hello/', function($request, $response, $args) {
+$app->get('/login/', function($request, $response, $args) {
 
-    return $response->write("Hello bitch");
+    return $response->write("Login page goes here.");
 
-})->setName('hello');
-
+})->setName('login');
 
 ?>
