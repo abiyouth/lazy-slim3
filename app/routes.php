@@ -7,9 +7,18 @@ $app->get('/', function($request, $response, $args) {
 
 })->setName('home');
 
-$app->get('/abcd/', function($request, $response, $args) {
+$app->get('/{name}', function($request, $response, $args) {
 
-    return "i";
+    $name = $args['name'];
+    return $response->write("Hello $name");
 
 })->setName('uuhdd');
+
+$app->get('/hello/', function($request, $response, $args) {
+
+    return $response->write("Hello bitch");
+
+})->setName('hello');
+
+
 ?>
