@@ -65,6 +65,8 @@ $app->get('/login/', function($request, $response, $args) {
 
     return $response->write("Login page goes here.");
 
+    // return $response->withRedirect($this->router->pathFor('home'));
+
 })->setName('login');
 
 ?>
