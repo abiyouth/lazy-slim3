@@ -8,6 +8,18 @@ $app->get('/', function($request, $response, $args) {
 
 })->setName('home');
 
+
+$app->post('/post/', function($request, $response, $args) {
+
+    // Post Example
+    $body = $response->getBody();
+    $post_data = $request->getParsedBody();
+    $body->write(json_encode(["name"=>$post_data['name']]));
+    return $response->withHeader('Content-Type','application/json')->withBody($body);
+
+})->setName('home');
+
+
 $app->get('/{name}', function($request, $response, $args) {
 
     // Getting values from url
@@ -47,7 +59,7 @@ $app->get('/session/', function($request, $response, $args){
 
     // \RKA\Session::destroy();
 
-});
+})->setName('Session');
 
 $app->get('/login/', function($request, $response, $args) {
 
