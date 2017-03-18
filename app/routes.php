@@ -1,46 +1,47 @@
 <?php
 
-//  Home page {Redirect}
+//  Landing page
 $app->get('/', function($request, $response, $args) {
 
     // Render twig template
-    return $this->view->render($response, 'home.twig', ['ray'=>'Hello Lazy world']);
+    return $this->view->render($response, 'sample.twig', ['name'=>'Hello Lazy world']);
 
 })->setName('home');
+
+
+$app->get('/post/', function($request, $response, $args){
+
+    // Render post example template
+    return $this->view->render($response, 'post.twig');
+
+})->setName("post_page");
 
 
 $app->post('/post/', function($request, $response, $args) {
+    /*
+     * Input
+     * {
+     *     "yourname" : "value"
+     * }
+     */
 
     // Post Example
-    $body = $response->getBody();
+
     $post_data = $request->getParsedBody();
-    $body->write(json_encode(["name"=>$post_data['name']]));
-    return $response->withHeader('Content-Type','application/json')->withBody($body);
 
-})->setName('home');
+    return "Welcome to the Lazy world ".$post_data['yourname'];
+
+})->setName('post_handler');
 
 
-$app->get('/{name}', function($request, $response, $args) {
+$app->get('/{custom}', function($request, $response, $args) {
 
     // Getting values from url
-    $name = $args['name'];
-    return $this->view->render($response, 'sample.twig', ['name'=>$name] );
+    $name = $args['custom'];
+    return "Change '".$name."' in the URL as you wish!<br> Check it!";
 
-})->setName('name');
+})->setName('custom_url');
 
-
-$app->group('/group/', function () use ($app) {
-
-    // Grouping routes
-    $app->get('', function ($req, $res) {
-        return "get";
-    });
-
-    $app->post('', function ($req, $res) {
-        return "post";
-    });
-
-});
 
 $app->get('/session/', function($request, $response, $args){
 
@@ -57,16 +58,27 @@ $app->get('/session/', function($request, $response, $args){
 
     return $foo." and ".$bar;
 
+    // Destroy session
     // \RKA\Session::destroy();
 
 })->setName('Session');
 
-$app->get('/login/', function($request, $response, $args) {
 
-    return $response->write("Login page goes here.");
+$app->get('/db/', function($request, $response, $args) {
+    /*
+     * DB check Documentation at http://www.medoo.in
+     */
 
-    // return $response->withRedirect($this->router->pathFor('home'));
+    // Post Example
 
-})->setName('login');
+    $data = $this->db->select("table","*",[
+       "AND" => [
+           "username" => "admin",
+           "password" => "godpass"
+       ]
+    ]); // Check documentation for more info.
 
-?>
+    return "<a href='http://medoo.in'>Click here for Documentation</a>";
+
+})->setName('db_example');
+

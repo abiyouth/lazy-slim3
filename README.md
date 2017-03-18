@@ -5,6 +5,7 @@ _lazy-slim3_ is an easy to start slim micro framework skeleton.
   - Slim3
   - Twig
   - RKA Session middleware
+  - Medoo
 
 (docs links below)
 ### Better
@@ -53,6 +54,7 @@ Windows:
  - [Slim3 docs](https://www.slimframework.com/docs/)
  - [Twig docs](http://twig.sensiolabs.org/documentation)
  - [RKA Session middleware docs](https://github.com/akrabat/rka-slim-session-middleware#rkasession)
+ - [Medoo](http://www.medoo.in)
 
 License
 ----

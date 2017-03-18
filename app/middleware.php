@@ -18,18 +18,20 @@ $container['view'] = function ($c) {
     return $view;
 };
 
-// DB container
+// Medoo database framework
 $container['db'] = function($container) {
 
-        $config = $container->get('config')['pdo'];
-        $dsn = "{$config['engine']}:host={$config['host']};dbname={$config['database']};charset={$config['charset']}";
-        $username = $config['username'];
-        $password = $config['password'];
+    $config = $container->get('config')['pdo'];
+    $database = new medoo([
+        'database_type' => 'mysql',
+        'database_name' => $config['dbname'],
+        'server' => $config['dbserver'],
+        'username' => $config['dbuser'],
+        'password' => $config['dbpass'],
+        'charset' => 'utf8'
+    ]);
 
-        return new PDO($dsn, $username, $password, $config['options']);
-
+    return $database;
 };
 
 
-
-?>

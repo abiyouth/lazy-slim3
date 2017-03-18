@@ -3,6 +3,9 @@
   <title>Lazy Slim3 : The framework for the laziest !</title>
 </head>
 <body>
-  {{ name }}
+  <h3>{{ name }}</h3>
+<br>
+<a href="{{ path_for("post_page") }}">POST Example</a><br>
+<a href="{{ path_for("custom_url",{"custom":"lazy"}) }}">Custom URL Example</a>
 </body>
 </html>
